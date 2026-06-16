@@ -16,7 +16,7 @@
             <a href="#szolgaltatasok">Miben segítek</a>
             <a href="#mitoszok">Mítoszok vs Valóság</a>
         </nav>
-        <a href="mailto:kovacs97gabor@gmail.com" class="cta-header">Kapcsolat</a>
+        <a href="#audit" class="cta-header">Audit kérése</a>
     </header>
 
     <!-- HERO SZEKCIÓ -->
@@ -58,7 +58,7 @@
         </div>
     </section>
 
-    <!-- MÍTOSZOK VS VALÓSÁG SZEKCIÓ (ÚJ) -->
+    <!-- MÍTOSZOK VS VALÓSÁG SZEKCIÓ -->
     <section id="mitoszok" class="myths-section">
         <div class="section-title-light">
             <h2>Mítoszok vs. Valóság</h2>
@@ -66,7 +66,6 @@
         </div>
 
         <div class="myths-grid">
-            <!-- 1. Kártya -->
             <div class="myth-card">
                 <div class="myth-side">
                     <span class="tag-myth">TÉVHIT</span>
@@ -74,11 +73,10 @@
                 </div>
                 <div class="reality-side">
                     <span class="tag-reality">VALÓSÁG</span>
-                    <p>A technika csak az alap. Megfelelő rendszerlogika, gyorsaság és folyamatos technikai optimalizálás nélkül a látogatókból sosem lesz vásárló.</p>
+                    <p>A technika csak az alap. Megfelelő rendszerlogika, gyorsaság és folyamatos technikai optimalizálás nélkül a látogatókból sosem bude vásárló.</p>
                 </div>
             </div>
 
-            <!-- 2. Kártya -->
             <div class="myth-card">
                 <div class="myth-side">
                     <span class="tag-myth">TÉVHIT</span>
@@ -90,7 +88,6 @@
                 </div>
             </div>
 
-            <!-- 3. Kártya -->
             <div class="myth-card">
                 <div class="myth-side">
                     <span class="tag-myth">TÉVHIT</span>
@@ -100,6 +97,44 @@
                     <span class="tag-reality">VALÓSÁG</span>
                     <p>Pár jól megírt script vagy egyedi táblázat naponta órákig tartó manuális, lélekölő adatmásolgatástól ment meg. Ez nem a vállalkozás méretétől, hanem a hatékonyságától függ.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AJÁNLATKÉRÉS / AUDIT SZEKCIÓ (ÚJ) -->
+    <section id="audit" class="audit-section">
+        <div class="audit-container">
+            <div class="audit-text">
+                <h2>Indítsuk el az ötleted, vagy tegyük rendbe a meglévőt.</h2>
+                <p>Nincsenek üres értékesítési körök vagy sablonos ajánlatok. Írd meg, milyen technikai elakadásod van, vagy vázold fel az új e-commerce koncepciódat (legyen az egy egyedi Shopify bolt vagy egy komplex rendszerintegráció).</p>
+                <ul class="audit-list">
+                    <li><strong>48 órán belüli válasz:</strong> Konkrét technikai iránymutatással reagálok.</li>
+                    <li><strong>Átlátható struktúra:</strong> Nincsenek rejtett költségek vagy túlvállalások.</li>
+                    <li><strong>Rendszerszemlélet:</strong> Nem csak a felületet nézem, a háttérfolyamatokat optimalizálom.</li>
+                </ul>
+            </div>
+            
+            <div class="audit-form-block">
+                <!-- A formspree.io linket később saját azonosítóra cserélheted, ha regisztrálsz náluk -->
+                <form action="https://formspree.io/f/xoqgkyre" method="POST" class="audit-form">
+                    <div class="form-group">
+                        <label for="name">Neved</label>
+                        <input type="text" id="name" name="name" required placeholder="Pl. Kis Péter">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail címed</label>
+                        <input type="email" id="email" name="email" required placeholder="peter@webshopod.hu">
+                    </div>
+                    <div class="form-group">
+                        <label for="url">Létező weboldalad vagy az ötlet neve</label>
+                        <input type="text" id="url" name="website" placeholder="Pl. www.webshopom.hu vagy Aarnisto projekt">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Miben akadsz el? Mi a technikai feladat?</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Írd le röviden a jelenlegi problémát, elvárást vagy a megvalósítandó funkciót..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Technikai megkeresés küldése</button>
+                </form>
             </div>
         </div>
     </section>
