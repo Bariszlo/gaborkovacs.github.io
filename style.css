@@ -175,10 +175,10 @@ body {
     line-height: 1.6;
 }
 
-/* MÍTOSZOK VS VALÓSÁG SZEKCIÓ (SÖTÉT KONTRAST) */
+/* Mítoszok vs Valóság Szekció */
 .myths-section {
     padding: 100px 5%;
-    background-color: var(--text-darkgreen); /* Átváltás a 30%-os mélyzöldre */
+    background-color: var(--text-darkgreen);
     color: #ffffff;
 }
 
@@ -254,6 +254,117 @@ body {
     line-height: 1.6;
 }
 
+/* AJÁNLATKÉRÉS / AUDIT SZEKCIÓ (ÚJ STÍLUSOK) */
+.audit-section {
+    padding: 100px 5%;
+    background-color: var(--bg-beige);
+}
+
+.audit-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.audit-text h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+}
+
+.audit-text p {
+    font-size: 1.15rem;
+    color: rgba(1, 46, 17, 0.8);
+    margin-bottom: 30px;
+}
+
+.audit-list {
+    list-style: none;
+}
+
+.audit-list li {
+    margin-bottom: 16px;
+    font-size: 1.05rem;
+    position: relative;
+    padding-left: 24px;
+}
+
+.audit-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-lightgreen);
+    font-weight: 700;
+}
+
+.audit-form-block {
+    background-color: #ffffff;
+    padding: 45px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(1, 46, 17, 0.04);
+}
+
+.audit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(1, 46, 17, 0.7);
+}
+
+.form-group input, .form-group textarea {
+    padding: 14px;
+    border: 1px solid rgba(1, 46, 17, 0.15);
+    border-radius: 6px;
+    background-color: #fafafa;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    color: var(--text-darkgreen);
+    transition: all 0.2s ease;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--text-darkgreen);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(1, 46, 17, 0.05);
+}
+
+.btn-submit {
+    background-color: var(--text-darkgreen);
+    color: #ffffff;
+    padding: 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: var(--accent-lightgreen);
+    color: var(--text-darkgreen);
+}
+
 /* Reszponzivitás mobilra */
 @media (max-width: 768px) {
     .main-header {
@@ -267,12 +378,14 @@ body {
     .hero-section h1 {
         font-size: 2.3rem;
     }
-    .myth-card {
+    .myth-card, .audit-container {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 32px;
+    }
+    .audit-form-block {
         padding: 25px;
     }
-    .services-section, .myths-section {
+    .services-section, .myths-section, .audit-section {
         padding: 60px 5%;
     }
 }
