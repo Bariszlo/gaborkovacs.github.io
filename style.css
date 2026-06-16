@@ -1,0 +1,122 @@
+/* Globális beállítások és Színpaletta */
+:root {
+    --bg-beige: #F3EDE2;       /* 60% */
+    --text-darkgreen: #012E11; /* 30% */
+    --accent-lightgreen: #86CE3E; /* 10% */
+    --font-main: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-beige);
+    color: var(--text-darkgreen);
+    font-family: var(--font-main);
+    line-height: 1.6;
+}
+
+/* Fejléc stílusok */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: var(--bg-beige);
+    border-bottom: 1px solid rgba(1, 46, 17, 0.1);
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-darkgreen);
+    margin: 0 15px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-lightgreen);
+}
+
+.cta-header {
+    text-decoration: none;
+    background-color: var(--text-darkgreen);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.cta-header:hover {
+    background-color: var(--accent-lightgreen);
+    color: var(--text-darkgreen);
+}
+
+/* Hero Szekció stílusok */
+.hero-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.hero-container {
+    max-width: 800px;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    color: rgba(1, 46, 17, 0.8);
+    margin-bottom: 40px;
+    max-width: 650px;
+}
+
+.btn-primary {
+    text-decoration: none;
+    background-color: var(--accent-lightgreen);
+    color: var(--text-darkgreen);
+    padding: 15px 32px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: inline-block;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(134, 206, 62, 0.3);
+}
+
+/* Reszponzivitás mobilra */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    .nav-links {
+        margin-bottom: 10px;
+    }
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+}
