@@ -107,55 +107,83 @@ body {
 }
 
 /* INTERAKTÍV APPLIKÁCIÓS KÖRNYEZET STÍLUSA */
-#app-viewport {
-    min-height: 85vh;
-    display: flex;
-    align-items: center;
-    padding: 80px 5%;
+/* --- FIX FELSŐ BEMUTATKOZÓ HERO --- */
+.hero-intro {
     background-color: var(--bg-beige);
-    overflow: hidden;
+    padding: 80px 5% 40px 5%;
+    text-align: left;
 }
 
-.interactive-container {
-    max-width: 1300px;
-    width: 100%;
+.intro-container {
+    max-width: 1200px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr; /* Alaphelyzet: Egymás alatt a szöveg és a kártyasor */
-    gap: 50px;
-    transition: grid-template-columns 0.7s cubic-bezier(0.25, 1, 0.5, 1), gap 0.7s ease;
 }
 
-/* TARTALMI ZÓNA */
-.content-zone {
-    position: relative;
-    min-height: 220px; /* Alap magasság */
-    display: flex;
-    align-items: center;
-    transition: min-height 0.5s ease;
-}
-
-.state-content {
-    position: absolute;
-    width: 100%;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(15px);
-    transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
-}
-
-.state-content h1, .state-content h2 {
-    font-size: 3.2rem;
+.hero-intro h1 {
+    font-size: 3.5rem;
     font-weight: 800;
     line-height: 1.15;
     margin-bottom: 24px;
     letter-spacing: -0.03em;
+    color: var(--text-darkgreen);
 }
 
-.state-content p {
-    font-size: 1.2rem;
-    color: rgba(1, 46, 17, 0.85);
+.hero-intro p {
+    font-size: 1.25rem;
+    color: rgba(1, 46, 17, 0.8);
     max-width: 800px;
+    line-height: 1.6;
+}
+
+/* --- INTERAKTÍV MÓDOSULÓ MUNKATERÜLET --- */
+#interactive-workspace {
+    background-color: var(--bg-beige);
+    padding: 0 5% 100px 5%;
+    overflow: hidden;
+}
+
+.workspace-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    width: 100%;
+}
+
+/* BAL OLDALI PANEL (Rejtett állapotból nyúlik ki) */
+.details-pane {
+    flex: 0 0 0%;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    position: relative;
+    transition: flex-basis 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                opacity 0.4s ease, 
+                visibility 0.4s ease;
+}
+
+.pane-content {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+}
+
+.pane-content h2 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.pane-content p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: rgba(1, 46, 17, 0.85);
 }
 
 .state-tag {
@@ -164,95 +192,127 @@ body {
     background-color: var(--text-darkgreen);
     padding: 6px 14px;
     border-radius: 20px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 700;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
-/* Képernyőképen látható letisztult link stílusok */
-.state-actions {
+.pane-actions {
     display: flex;
     align-items: center;
-    gap: 24px;
-    margin-top: 30px;
+    gap: 30px;
+    margin-top: 40px;
 }
 
-.action-link-main, .btn-secondary {
+.action-link-main, .btn-back {
     font-size: 1rem;
     font-weight: 600;
     text-decoration: underline;
     background: none;
     border: none;
     cursor: pointer;
+    color: var(--text-darkgreen);
     padding: 0;
-    font-family: var(--font-main);
-    transition: color 0.2s ease;
 }
 
-.action-link-main {
-    color: var(--text-darkgreen);
-}
-
-.btn-secondary {
-    color: var(--text-darkgreen);
-}
-
-.action-link-main:hover, .btn-secondary:hover {
-    color: var(--accent-lightgreen);
-}
-
-/* KÁRTYÁK ZÓNÁJA - ITT TÖRTÉNIK A VARÁZSLAT */
-.cards-zone {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* ALAPHELYZET: 3 kártya egymás mellett */
+/* JOBB OLDALI PANEL (Kártyák tárolója) */
+.cards-pane {
+    flex: 0 0 100%;
+    display: flex;
+    flex-wrap: wrap;
     gap: 24px;
-    width: 100%;
-    transition: grid-template-columns 0.7s cubic-bezier(0.25, 1, 0.5, 1), gap 0.5s ease;
+    transition: flex-basis 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+/* EGYEDI KÁRTYA ALAPHELYZETBEN (Széles, egymás mellett) */
 .interactive-card {
     background-color: #ffffff;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(1, 46, 17, 0.02);
     cursor: pointer;
-    border: 2px solid transparent;
+    flex: 1 1 calc(33.333% - 16px); /* 3 oszlopos elrendezés */
     display: flex;
     flex-direction: column;
     gap: 16px;
-    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    min-width: 250px;
+    box-shadow: 0 10px 30px rgba(1, 46, 17, 0.02);
+    transition: flex 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                padding 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+                background-color 0.4s ease,
+                color 0.4s ease,
+                transform 0.3s ease;
 }
 
 .interactive-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 15px 40px rgba(1, 46, 17, 0.05);
 }
 
 .interactive-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 700;
 }
 
-.interactive-card p {
+.card-desc {
     font-size: 0.95rem;
-    color: rgba(1, 46, 17, 0.7);
+    color: rgba(1, 46, 17, 0.65);
     line-height: 1.5;
-    max-height: 100px;
     opacity: 1;
-    transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.4s ease;
+    max-height: 80px;
+    transition: max-height 0.5s ease, opacity 0.3s ease;
 }
 
 .card-icon svg {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     stroke: var(--text-darkgreen);
     transition: stroke 0.3s ease;
 }
 
-/* AKTÍV ÁLLAPOTOK VEZÉRLÉSE */
+/* --- TRANSZFORMÁLT (AKTÍV) ÁLLAPOT CSS MECHANIKÁJA --- */
 
+/* Ha BÁRMELYIK kártya aktív, a bal oldal kinyílik 55%-ra */
+#interactive-workspace:not([data-state="initial"]) .details-pane {
+    flex-basis: 55%;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* A jobb oldali kártyasor összehúzódik 45%-ra */
+#interactive-workspace:not([data-state="initial"]) .cards-pane {
+    flex-basis: 45%;
+}
+
+/* A kártyák flex-alapon lágyan átfolynak 100%-os szélességre (egymás alá) */
+#interactive-workspace:not([data-state="initial"]) .interactive-card {
+    flex: 1 1 100%;
+    padding: 16px 24px;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* A kártyák kis leírása finoman bezáródik */
+#interactive-workspace:not([data-state="initial"]) .card-desc {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin: 0;
+}
+
+/* Aktív leíráspanel megjelenítése */
+#interactive-workspace[data-state="shopify"] #pane-shopify { opacity: 1; transform: translateY(0); pointer-events: auto; }
+#interactive-workspace[data-state="integration"] #pane-integration { opacity: 1; transform: translateY(0); pointer-events: auto; }
+#interactive-workspace[data-state="automation"] #pane-automation { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+/* Kijelölt kártya kiemelése (Kép szerinti sötét stílus) */
+.interactive-card.active-card {
+    background-color: var(--text-darkgreen) !important;
+    color: #ffffff !important;
+}
+
+.interactive-card.active-card .card-icon svg {
+    stroke: var(--accent-lightgreen);
+}
 /* Szövegek cseréje */
 #app-viewport[data-state="initial"] #state-initial { opacity: 1; pointer-events: auto; transform: translateY(0); }
 #app-viewport[data-state="shopify"] #state-shopify { opacity: 1; pointer-events: auto; transform: translateY(0); }
