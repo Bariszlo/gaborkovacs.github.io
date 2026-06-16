@@ -157,9 +157,10 @@ body {
     visibility: hidden;
     overflow: hidden;
     position: relative;
-    transition: flex-basis 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
-                opacity 0.4s ease, 
-                visibility 0.4s ease;
+    /* Duplázott időzítés (1.6s) a lágyabb nyílásért */
+    transition: flex-basis 1.6s cubic-bezier(0.25, 1, 0.5, 1), 
+                opacity 0.8s ease, 
+                visibility 0.8s ease;
 }
 
 .pane-content {
@@ -168,8 +169,11 @@ body {
     top: 0;
     left: 0;
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: translateY(30px); /* Kicsit lejjebbről indul a finomabb emelkedésért */
+    /* Késleltetés (delay) hozzáadva a végére (0.4s és 0.3s) */
+    /* Így a szöveg megvárja, amíg a panel érdemi szélességet ér el */
+    transition: opacity 1.0s ease 0.4s, 
+                transform 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.3s;
     pointer-events: none;
 }
 
@@ -222,7 +226,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
-    transition: flex-basis 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    /* Duplázott időzítés (1.6s), szinkronban a bal oldallal */
+    transition: flex-basis 1.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* EGYEDI KÁRTYA ALAPHELYZETBEN (Széles, egymás mellett) */
@@ -231,14 +236,15 @@ body {
     padding: 30px;
     border-radius: 12px;
     cursor: pointer;
-    flex: 1 1 calc(33.333% - 16px); /* 3 oszlopos elrendezés */
+    flex: 1 1 calc(33.333% - 16px);
     display: flex;
     flex-direction: column;
     gap: 16px;
     min-width: 250px;
     box-shadow: 0 10px 30px rgba(1, 46, 17, 0.02);
-    transition: flex 0.8s cubic-bezier(0.25, 1, 0.5, 1),
-                padding 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+    /* A kártyák formaváltása és a padding átrendeződése is lelassítva */
+    transition: flex 1.6s cubic-bezier(0.25, 1, 0.5, 1),
+                padding 1.2s cubic-bezier(0.25, 1, 0.5, 1),
                 background-color 0.4s ease,
                 color 0.4s ease,
                 transform 0.3s ease;
@@ -259,7 +265,8 @@ body {
     line-height: 1.5;
     opacity: 1;
     max-height: 80px;
-    transition: max-height 0.5s ease, opacity 0.3s ease;
+    /* A kis szöveg eltűnése is követi a lassú tempót */
+    transition: max-height 1.0s ease, opacity 0.6s ease;
 }
 
 .card-icon svg {
