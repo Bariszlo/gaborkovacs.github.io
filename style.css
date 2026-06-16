@@ -164,12 +164,12 @@ body {
 
 .pane-content {
     grid-area: 1 / 1;
+    opacity: 0;
     transform: translateY(30px);
-    transition: opacity 1.0s ease 1.5s, 
-                transform 1.2s cubic-bezier(0.25, 1, 0.5, 1) 1.5s;
+    transition: opacity 1.0s ease 1.2s, 
+                transform 1.2s cubic-bezier(0.25, 1, 0.5, 1) 1.2s;
     pointer-events: none;
 }
-
 .pane-content h2 {
     font-size: 2.8rem;
     font-weight: 800;
@@ -765,4 +765,15 @@ body {
     .modal-content {
         padding: 25px;
     }
+}
+
+/* STABILIZÁLÁS: Aktív állapotban a konténer azonnal váltson tiszta oszlop elrendezésre */
+#interactive-workspace:not([data-state="initial"]) .cards-pane {
+    flex-direction: column;
+}
+
+/* STABILIZÁLÁS: A kártyák azonnal vegyék fel a teljes szélességet, és engedjék el a 250px-es limitet */
+#interactive-workspace:not([data-state="initial"]) .interactive-card {
+    flex: 1 1 100%;
+    min-width: 0; /* Ez akadályozza meg, hogy a gombok kitolják a szekció alját */
 }
