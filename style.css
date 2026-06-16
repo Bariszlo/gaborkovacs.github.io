@@ -39,6 +39,7 @@ body {
     font-size: 1.3rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    cursor: pointer;
 }
 
 .nav-links a {
@@ -70,7 +71,41 @@ body {
     color: var(--text-darkgreen);
 }
 
-/* Hero Szekció stílusok */
+/* GOMBOK ALAPSTÍLUSAI */
+.btn-primary {
+    text-decoration: none;
+    background-color: var(--accent-lightgreen);
+    color: var(--text-darkgreen);
+    padding: 16px 36px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    display: inline-block;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(134, 206, 62, 0.35);
+}
+
+.btn-secondary {
+    background: none;
+    border: none;
+    color: var(--text-darkgreen);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.btn-secondary:hover {
+    color: var(--accent-lightgreen);
+}
+
 /* INTERAKTÍV APPLIKÁCIÓS KÖRNYEZET STÍLUSA */
 #app-viewport {
     min-height: 85vh;
@@ -142,21 +177,6 @@ body {
     gap: 20px;
 }
 
-.btn-secondary {
-    background: none;
-    border: none;
-    color: var(--text-darkgreen);
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    text-decoration: underline;
-    transition: color 0.2s ease;
-}
-
-.btn-secondary:hover {
-    color: var(--accent-lightgreen);
-}
-
 /* INTERAKTÍV KÁRTYÁK ZÓNÁJA */
 .cards-zone {
     display: flex;
@@ -193,7 +213,25 @@ body {
     line-height: 1.5;
 }
 
-/* ÁLLAPOT VEZÉRELT ANIMÁCIÓK (A VARÁZSLAT) */
+/* ALAP SVG IKON STÍLUSOK ÉS ANIMÁCIÓ */
+.card-icon {
+    margin-bottom: 24px;
+    display: inline-block;
+}
+
+.card-icon svg {
+    width: 42px;
+    height: 42px;
+    stroke: var(--text-darkgreen);
+    transition: stroke 0.3s ease, transform 0.3s ease;
+}
+
+.interactive-card:hover .card-icon svg {
+    stroke: var(--accent-lightgreen);
+    transform: scale(1.05);
+}
+
+/* ÁLLAPOT VEZÉRELT ANIMÁCIÓK */
 
 /* 1. Alapállapot megjelenítése */
 #app-viewport[data-state="initial"] #state-initial {
@@ -215,10 +253,10 @@ body {
 #app-viewport[data-state="shopify"] .interactive-container,
 #app-viewport[data-state="integration"] .interactive-container,
 #app-viewport[data-state="automation"] .interactive-container {
-    grid-template-columns: 1fr 1fr; /* Kiegyenlítettebb elrendezés */
+    grid-template-columns: 1fr 1fr;
 }
 
-/* A kártyák összemorpholódása és balra/egymás mellé rendeződése egy vékony sávba */
+/* A kártyák összemorpholódása és egymás alá rendeződése egy vékony sávba */
 #app-viewport:not([data-state="initial"]) .cards-zone {
     gap: 12px;
 }
@@ -231,7 +269,7 @@ body {
 }
 
 #app-viewport:not([data-state="initial"]) .interactive-card p {
-    display: none; /* Részletes leírás elrejtése a morph után */
+    display: none;
 }
 
 #app-viewport:not([data-state="initial"]) .interactive-card h3 {
@@ -263,7 +301,7 @@ body {
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* RESZPONSZÍV MOBIL NÉZET */
+/* RESZPONSZÍV KÖZÉP-NÉZET (MORPH LETILTÁSA TABLETEN ÉS MOBILON) */
 @media (max-width: 992px) {
     .interactive-container,
     #app-viewport[data-state="shopify"] .interactive-container,
@@ -279,7 +317,6 @@ body {
         position: relative;
         display: none;
     }
-    /* Mobilnézetben csak az aktív tartalom létezzen egymás alatt */
     #app-viewport[data-state="initial"] #state-initial,
     #app-viewport[data-state="shopify"] #state-shopify,
     #app-viewport[data-state="integration"] #state-integration,
@@ -557,14 +594,14 @@ body {
     color: var(--accent-lightgreen);
 }
 
-/* ÚJ MODAL / POP-UP CSS STÍLUSOK */
+/* MODAL / POP-UP CSS STÍLUSOK */
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(1, 46, 17, 0.7); /* Sötétzöld áttetsző réteg */
+    background-color: rgba(1, 46, 17, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -624,7 +661,7 @@ body {
     line-height: 1.6;
 }
 
-/* Reszponzivitás mobilra */
+/* ÁLTALÁNOS MOBIL RESZPONSZIVITÁS */
 @media (max-width: 768px) {
     .main-header {
         flex-direction: column;
@@ -633,9 +670,6 @@ body {
     }
     .nav-links {
         margin-bottom: 8px;
-    }
-    .hero-section h1 {
-        font-size: 2.3rem;
     }
     .myth-card, .audit-container {
         grid-template-columns: 1fr;
