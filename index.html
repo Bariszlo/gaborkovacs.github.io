@@ -101,6 +101,7 @@
 </section>
 
     <script>
+        // 1. Interaktív kártyák és munkaterület logikája
         function activateState(stateName) {
             const workspace = document.getElementById('interactive-workspace');
             workspace.setAttribute('data-state', stateName);
@@ -120,6 +121,33 @@
                 card.classList.remove('active-card');
             });
         }
+
+        // 2. Adatkezelési Pop-up (Modal) logikája
+        const modal = document.getElementById('privacy-modal');
+        const openLink = document.getElementById('open-privacy');
+        const openFooterLink = document.getElementById('open-privacy-footer');
+        const closeBtn = document.querySelector('.modal-close');
+
+        function showModal(e) {
+            e.preventDefault();
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        if (openLink) openLink.addEventListener('click', showModal);
+        if (openFooterLink) openFooterLink.addEventListener('click', showModal);
+        if (closeBtn) closeBtn.addEventListener('click', hideModal);
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                hideModal();
+            }
+        });
     </script>
 
     <!-- MÍTOSZOK VS VALÓSÁG SZEKCIÓ -->
