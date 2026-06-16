@@ -175,10 +175,10 @@ body {
     line-height: 1.6;
 }
 
-/* Mítoszok vs Valóság Szekció */
+/* MÍTOSZOK SZEKCIÓ (ERŐS MÉLYZÖLD KONTRAST) */
 .myths-section {
     padding: 100px 5%;
-    background-color: var(--text-darkgreen);
+    background-color: var(--text-darkgreen); /* Tiszta mélyzöld háttér block */
     color: #ffffff;
 }
 
@@ -197,7 +197,8 @@ body {
 
 .section-title-light p {
     font-size: 1.15rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--bg-beige);
+    opacity: 0.8;
 }
 
 .myths-grid {
@@ -209,24 +210,20 @@ body {
 }
 
 .myth-card {
-    background-color: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: rgba(255, 255, 255, 0.05); /* Világosabb, hogy elváljon */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Kontrasztos keret */
+    border-left: 4px solid #ff6b6b; /* Vizuális törés a tévhitnek */
     border-radius: 12px;
     padding: 35px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    transition: background-color 0.3s ease;
-}
-
-.myth-card:hover {
-    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .tag-myth {
     display: inline-block;
-    color: #ff6b6b;
-    font-size: 0.75rem;
+    color: #ff8787;
+    font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 1px;
     margin-bottom: 12px;
@@ -234,27 +231,27 @@ body {
 
 .tag-reality {
     display: inline-block;
-    color: var(--accent-lightgreen);
-    font-size: 0.75rem;
+    color: var(--accent-lightgreen); /* Éles világoszöld kiemelés */
+    font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 1px;
     margin-bottom: 12px;
 }
 
 .myth-side h3 {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 600;
     line-height: 1.4;
-    color: rgba(255, 255, 255, 0.9);
+    color: #ffffff;
 }
 
 .reality-side p {
     font-size: 1.05rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--bg-beige); /* Éles, tiszta olvashatóság */
     line-height: 1.6;
 }
 
-/* AJÁNLATKÉRÉS / AUDIT SZEKCIÓ (ÚJ STÍLUSOK) */
+/* AJÁNLATKÉRÉS / AUDIT SZEKCIÓ */
 .audit-section {
     padding: 100px 5%;
     background-color: var(--bg-beige);
@@ -298,7 +295,7 @@ body {
     content: "→";
     position: absolute;
     left: 0;
-    color: var(--accent-lightgreen);
+    color: var(--text-darkgreen);
     font-weight: 700;
 }
 
@@ -365,6 +362,47 @@ body {
     color: var(--text-darkgreen);
 }
 
+/* LÁBLÉC STÍLUSOK (FOOTER - ÚJ MÉLYZÖLD BLOKK) */
+.main-footer {
+    background-color: var(--text-darkgreen);
+    color: var(--bg-beige);
+    padding: 60px 5% 40px 5%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-brand p {
+    font-size: 0.95rem;
+    opacity: 0.7;
+    margin-top: 4px;
+}
+
+.footer-logo {
+    font-weight: 800;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-meta {
+    text-align: right;
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+.footer-meta p {
+    margin-bottom: 4px;
+}
+
 /* Reszponzivitás mobilra */
 @media (max-width: 768px) {
     .main-header {
@@ -382,10 +420,21 @@ body {
         grid-template-columns: 1fr;
         gap: 32px;
     }
+    .myth-card {
+        border-left: none;
+        border-top: 4px solid #ff6b6b;
+    }
     .audit-form-block {
         padding: 25px;
     }
     .services-section, .myths-section, .audit-section {
         padding: 60px 5%;
+    }
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-meta {
+        text-align: center;
     }
 }
