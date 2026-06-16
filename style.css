@@ -169,11 +169,10 @@ body {
     top: 0;
     left: 0;
     opacity: 0;
-    transform: translateY(30px); /* Kicsit lejjebbről indul a finomabb emelkedésért */
-    /* Késleltetés (delay) hozzáadva a végére (0.4s és 0.3s) */
-    /* Így a szöveg megvárja, amíg a panel érdemi szélességet ér el */
-    transition: opacity 1.0s ease 0.4s, 
-                transform 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.3s;
+    transform: translateY(30px);
+    /* Az utolsó értékek (1.5s) határozzák meg a várakozási időt */
+    transition: opacity 1.0s ease 1.5s, 
+                transform 1.2s cubic-bezier(0.25, 1, 0.5, 1) 1.5s;
     pointer-events: none;
 }
 
