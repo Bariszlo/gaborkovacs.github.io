@@ -3,7 +3,7 @@
     --bg-beige: #F3EDE2;       /* 60% */
     --text-darkgreen: #012E11; /* 30% */
     --accent-lightgreen: #86CE3E; /* 10% */
-    --font-main: 'Inter', sans-serif;
+    --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 * {
@@ -175,10 +175,10 @@ body {
     line-height: 1.6;
 }
 
-/* MÍTOSZOK SZEKCIÓ (ERŐS MÉLYZÖLD KONTRAST) */
+/* MÍTOSZOK SZEKCIÓ */
 .myths-section {
     padding: 100px 5%;
-    background-color: var(--text-darkgreen); /* Tiszta mélyzöld háttér block */
+    background-color: var(--text-darkgreen);
     color: #ffffff;
 }
 
@@ -210,9 +210,9 @@ body {
 }
 
 .myth-card {
-    background-color: rgba(255, 255, 255, 0.05); /* Világosabb, hogy elváljon */
-    border: 1px solid rgba(255, 255, 255, 0.15); /* Kontrasztos keret */
-    border-left: 4px solid #ff6b6b; /* Vizuális törés a tévhitnek */
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 4px solid #ff6b6b;
     border-radius: 12px;
     padding: 35px;
     display: grid;
@@ -231,7 +231,7 @@ body {
 
 .tag-reality {
     display: inline-block;
-    color: var(--accent-lightgreen); /* Éles világoszöld kiemelés */
+    color: var(--accent-lightgreen);
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 1px;
@@ -247,7 +247,7 @@ body {
 
 .reality-side p {
     font-size: 1.05rem;
-    color: var(--bg-beige); /* Éles, tiszta olvashatóság */
+    color: var(--bg-beige);
     line-height: 1.6;
 }
 
@@ -344,6 +344,31 @@ body {
     box-shadow: 0 0 0 3px rgba(1, 46, 17, 0.05);
 }
 
+/* Checkbox GDPR formázása */
+.form-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 5px 0;
+}
+
+.form-checkbox input[type="checkbox"] {
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.form-checkbox label {
+    font-size: 0.9rem;
+    color: rgba(1, 46, 17, 0.8);
+    line-height: 1.4;
+}
+
+.form-checkbox a {
+    color: var(--text-darkgreen);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
 .btn-submit {
     background-color: var(--text-darkgreen);
     color: #ffffff;
@@ -362,7 +387,7 @@ body {
     color: var(--text-darkgreen);
 }
 
-/* LÁBLÉC STÍLUSOK (FOOTER - ÚJ MÉLYZÖLD BLOKK) */
+/* LÁBLÉC STÍLUSOK */
 .main-footer {
     background-color: var(--text-darkgreen);
     color: var(--bg-beige);
@@ -403,6 +428,83 @@ body {
     margin-bottom: 4px;
 }
 
+.footer-link {
+    color: var(--bg-beige);
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+    color: var(--accent-lightgreen);
+}
+
+/* ÚJ MODAL / POP-UP CSS STÍLUSOK */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(1, 46, 17, 0.7); /* Sötétzöld áttetsző réteg */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(1, 46, 17, 0.2);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-darkgreen);
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.4;
+    transition: opacity 0.2s ease;
+}
+
+.modal-close:hover {
+    opacity: 1;
+}
+
+.modal-content h3 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: var(--text-darkgreen);
+    border-bottom: 2px solid rgba(1, 46, 17, 0.05);
+    padding-bottom: 10px;
+}
+
+.modal-text p {
+    font-size: 0.95rem;
+    color: rgba(1, 46, 17, 0.85);
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
 /* Reszponzivitás mobilra */
 @media (max-width: 768px) {
     .main-header {
@@ -436,5 +538,8 @@ body {
     }
     .footer-meta {
         text-align: center;
+    }
+    .modal-content {
+        padding: 25px;
     }
 }
