@@ -71,121 +71,227 @@ body {
 }
 
 /* Hero Szekció stílusok */
-.hero-section {
-    min-height: 75vh;
+/* INTERAKTÍV APPLIKÁCIÓS KÖRNYEZET STÍLUSA */
+#app-viewport {
+    min-height: 85vh;
     display: flex;
     align-items: center;
-    padding: 0 5%;
+    padding: 60px 5%;
+    background-color: var(--bg-beige);
+    overflow: hidden;
 }
 
-.hero-container {
-    max-width: 850px;
+.interactive-container {
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Bal oldal szöveg, jobb oldal kártyák */
+    gap: 60px;
+    align-items: center;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.hero-section h1 {
-    font-size: 3.5rem;
+/* TARTALMI ZÓNA ÉS AZ ÁLLAPOTOK */
+.content-zone {
+    position: relative;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+}
+
+.state-content {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.state-content h1, .state-content h2 {
+    font-size: 3.2rem;
     font-weight: 800;
     line-height: 1.15;
     margin-bottom: 24px;
     letter-spacing: -0.03em;
 }
 
-.hero-section p {
-    font-size: 1.25rem;
+.state-content p {
+    font-size: 1.2rem;
     color: rgba(1, 46, 17, 0.85);
-    margin-bottom: 40px;
-    max-width: 680px;
+    margin-bottom: 35px;
 }
 
-.btn-primary {
-    text-decoration: none;
-    background-color: var(--accent-lightgreen);
-    color: var(--text-darkgreen);
-    padding: 16px 36px;
-    border-radius: 6px;
-    font-weight: 700;
-    font-size: 1.05rem;
+.state-tag {
     display: inline-block;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(134, 206, 62, 0.35);
-}
-
-/* Szolgáltatások Szekció */
-.services-section {
-    padding: 100px 5%;
-    background-color: rgba(1, 46, 17, 0.02);
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.section-title h2 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 12px;
-    letter-spacing: -0.02em;
-}
-
-.section-title p {
-    font-size: 1.15rem;
-    color: rgba(1, 46, 17, 0.7);
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.service-card {
-    background-color: #ffffff;
-    padding: 45px 35px;
-    border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(1, 46, 17, 0.03);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 50px rgba(1, 46, 17, 0.07);
-}
-
-.card-icon {
-    margin-bottom: 24px;
-    display: inline-block;
-}
-
-.card-icon svg {
-    width: 42px;
-    height: 42px;
-    stroke: var(--text-darkgreen); /* Alapértelmezetten a sötétzöld márkaszín */
-    transition: stroke 0.3s ease, transform 0.3s ease;
-}
-
-/* Interakció: Ha az egér a kártya fölé ér, az ikon átvált a neonos zöld kiemelő színre és finoman megmozdul */
-.service-card:hover .card-icon svg {
-    stroke: var(--accent-lightgreen);
-    transform: scale(1.05);
-}
-
-.service-card h3 {
-    font-size: 1.4rem;
+    color: var(--accent-lightgreen);
+    background-color: var(--text-darkgreen);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
     font-weight: 700;
     margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.service-card p {
+.state-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-secondary {
+    background: none;
+    border: none;
+    color: var(--text-darkgreen);
+    font-weight: 600;
     font-size: 1rem;
-    color: rgba(1, 46, 17, 0.75);
-    line-height: 1.6;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.btn-secondary:hover {
+    color: var(--accent-lightgreen);
+}
+
+/* INTERAKTÍV KÁRTYÁK ZÓNÁJA */
+.cards-zone {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.interactive-card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(1, 46, 17, 0.02);
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.interactive-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(1, 46, 17, 0.06);
+    border-color: rgba(1, 46, 17, 0.1);
+}
+
+.interactive-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.interactive-card p {
+    font-size: 0.95rem;
+    color: rgba(1, 46, 17, 0.7);
+    line-height: 1.5;
+}
+
+/* ÁLLAPOT VEZÉRELT ANIMÁCIÓK (A VARÁZSLAT) */
+
+/* 1. Alapállapot megjelenítése */
+#app-viewport[data-state="initial"] #state-initial {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* 2. Aktivált állapotok kezelése */
+#app-viewport[data-state="shopify"] #state-shopify,
+#app-viewport[data-state="integration"] #state-integration,
+#app-viewport[data-state="automation"] #state-automation {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* 3. A MORPH EFFEKT: Ha kiválasztunk egy opciót, a struktúra átalakul */
+#app-viewport[data-state="shopify"] .interactive-container,
+#app-viewport[data-state="integration"] .interactive-container,
+#app-viewport[data-state="automation"] .interactive-container {
+    grid-template-columns: 1fr 1fr; /* Kiegyenlítettebb elrendezés */
+}
+
+/* A kártyák összemorpholódása és balra/egymás mellé rendeződése egy vékony sávba */
+#app-viewport:not([data-state="initial"]) .cards-zone {
+    gap: 12px;
+}
+
+#app-viewport:not([data-state="initial"]) .interactive-card {
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+#app-viewport:not([data-state="initial"]) .interactive-card p {
+    display: none; /* Részletes leírás elrejtése a morph után */
+}
+
+#app-viewport:not([data-state="initial"]) .interactive-card h3 {
+    margin-bottom: 0;
+    font-size: 1.1rem;
+}
+
+#app-viewport:not([data-state="initial"]) .card-icon {
+    margin-bottom: 0;
+}
+
+#app-viewport:not([data-state="initial"]) .card-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+/* Kiemelés, ha az adott kártya aktív */
+.interactive-card.active {
+    background-color: var(--text-darkgreen);
+    color: #ffffff;
+    border-color: var(--text-darkgreen);
+}
+
+.interactive-card.active .card-icon svg {
+    stroke: var(--accent-lightgreen);
+}
+
+.interactive-card.active p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* RESZPONSZÍV MOBIL NÉZET */
+@media (max-width: 992px) {
+    .interactive-container,
+    #app-viewport[data-state="shopify"] .interactive-container,
+    #app-viewport[data-state="integration"] .interactive-container,
+    #app-viewport[data-state="automation"] .interactive-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .content-zone {
+        min-height: auto;
+    }
+    .state-content {
+        position: relative;
+        display: none;
+    }
+    /* Mobilnézetben csak az aktív tartalom létezzen egymás alatt */
+    #app-viewport[data-state="initial"] #state-initial,
+    #app-viewport[data-state="shopify"] #state-shopify,
+    #app-viewport[data-state="integration"] #state-integration,
+    #app-viewport[data-state="automation"] #state-automation {
+        display: block;
+    }
+    .state-content h1, .state-content h2 {
+        font-size: 2.2rem;
+    }
+    #app-viewport:not([data-state="initial"]) .cards-zone {
+        flex-direction: column;
+    }
 }
 
 /* MÍTOSZOK SZEKCIÓ */
