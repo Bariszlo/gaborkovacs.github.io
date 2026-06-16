@@ -101,30 +101,25 @@
 </section>
 
     <script>
-        function changeState(stateName) {
-            const viewport = document.getElementById('app-viewport');
-            viewport.setAttribute('data-state', stateName);
+        function activateState(stateName) {
+            const workspace = document.getElementById('interactive-workspace');
+            workspace.setAttribute('data-state', stateName);
             
-            // Kártyák aktív státuszának kezelése
             document.querySelectorAll('.interactive-card').forEach(card => {
-                card.classList.remove('active');
+                card.classList.remove('active-card');
             });
-            const activeCard = document.getElementById(`card-${stateName}`);
-            if(activeCard) activeCard.classList.add('active');
+            
+            document.getElementById(`card-${stateName}`).classList.add('active-card');
         }
 
-        function resetState() {
-            const viewport = document.getElementById('app-viewport');
-            viewport.setAttribute('data-state', 'initial');
+        function resetWorkspace() {
+            const workspace = document.getElementById('interactive-workspace');
+            workspace.setAttribute('data-state', 'initial');
+            
             document.querySelectorAll('.interactive-card').forEach(card => {
-                card.classList.remove('active');
+                card.classList.remove('active-card');
             });
         }
-        
-        // Ha a logóra kattint, ugorjon alaphelyzetbe
-        document.querySelector('.logo').addEventListener('click', (e) => {
-            resetState();
-        });
     </script>
 
     <!-- MÍTOSZOK VS VALÓSÁG SZEKCIÓ -->
