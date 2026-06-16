@@ -159,8 +159,21 @@ body {
 }
 
 .card-icon {
-    font-size: 2.5rem;
     margin-bottom: 24px;
+    display: inline-block;
+}
+
+.card-icon svg {
+    width: 42px;
+    height: 42px;
+    stroke: var(--text-darkgreen); /* Alapértelmezetten a sötétzöld márkaszín */
+    transition: stroke 0.3s ease, transform 0.3s ease;
+}
+
+/* Interakció: Ha az egér a kártya fölé ér, az ikon átvált a neonos zöld kiemelő színre és finoman megmozdul */
+.service-card:hover .card-icon svg {
+    stroke: var(--accent-lightgreen);
+    transform: scale(1.05);
 }
 
 .service-card h3 {
