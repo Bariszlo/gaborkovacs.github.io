@@ -19,59 +19,114 @@
     </header>
 
     <!-- HERO SZEKCIÓ -->
-    <section class="hero-section">
-        <div class="hero-container">
-            <h1>A webshopod nem gombok összessége, hanem egy üzleti rendszer.</h1>
-            <p>Nem "billentyűket nyomkodok" távmunkában. Az e-kereskedelmi folyamataidat hangolom össze és automatizálom, hogy az adminisztrációs káosz helyett a növekedésre fókuszálhass.</p>
-            <div class="hero-buttons">
-                <a href="#szolgaltatasok" class="btn-primary">Nézzük a megoldásokat</a>
-            </div>
-        </div>
-    </section>
+    <main id="app-viewport" data-state="initial">
+        <div class="interactive-container">
+            
+            <div class="content-zone">
+                <div class="state-content" id="state-initial">
+                    <h1>A webshopod nem gombok összessége, hanem egy üzleti rendszer.</h1>
+                    <p>Nem "billentyűket nyomkodok" távmunkában. Az e-kereskedelmi folyamataidat hangolom össze és automatizálom, hogy az adminisztrációs káosz helyett a növekedésre fókuszálhass.</p>
+                    <button class="btn-primary" onclick="changeState('shopify')">Nézzük a megoldásokat</button>
+                </div>
 
-    <!-- MIBEN SEGÍTEK / SZOLGÁLTATÁSOK SZEKCIÓ -->
-   <section id="szolgaltatasok" class="services-section">
-        <div class="section-title">
-            <h2>Miben segítek?</h2>
-            <p>Leveszem a válladról a technikai és adminisztratív stresszt.</p>
+                <div class="state-content" id="state-shopify">
+                    <span class="state-tag">Shopify & Liquid</span>
+                    <h2>Egyedi kódolás, sablonok nélkül.</h2>
+                    <p>Nem kész sablonokat kattingatok össze. Ha kell, belenyúlok a Liquid kódba, egyedi funkciókat fejlesztek, vagy optimalizálom az oldalsebességet. Nemzetközi piacra lépésnél precíz többnyelvűsítést és tiszta URL struktúrát építek, amit a keresők is szeretnek.</p>
+                    <div class="state-actions">
+                        <a href="#audit" class="btn-primary">Erre van szükségem</a>
+                        <button class="btn-secondary" onclick="resetState()">← Vissza a főoldalra</button>
+                    </div>
+                </div>
+
+                <div class="state-content" id="state-integration">
+                    <span class="state-tag">Rendszerintegráció</span>
+                    <h2>Nincs több elveszett adat vagy elakadt fizetés.</h2>
+                    <p>A webshopod nem szigetként működik. Összekötöm a Shopify-t a finn és nemzetközi pénzügyi rendszerekkel (Holvi, MobilePay), valamint automatizálom a postai logisztikát. Az adatok szinkronizálása azonnali és hibamentes lesz.</p>
+                    <div class="state-actions">
+                        <a href="#audit" class="btn-primary">Integrációt szeretnék</a>
+                        <button class="btn-secondary" onclick="resetState()">← Vissza a főoldalra</button>
+                    </div>
+                </div>
+
+                <div class="state-content" id="state-automation">
+                    <span class="state-tag">Folyamat-automatizálás</span>
+                    <h2>Váltsd ki a manuális Excel-táblázatokat.</h2>
+                    <p>Ha hetente órákat töltesz adatok másolgatásával, számlák kézi egyeztetésével vagy készletfrissítéssel, pénzt veszítesz. Olyan egyedi scripteket és digitális munkafolyamatokat építek, amik emberi beavatkozás nélkül, percek alatt elvégzik a napi rutint.</p>
+                    <div class="state-actions">
+                        <a href="#audit" class="btn-primary">Automatizálni akarok</a>
+                        <button class="btn-secondary" onclick="resetState()">← Vissza a főoldalra</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cards-zone">
+                
+                <div class="interactive-card" id="card-shopify" onclick="changeState('shopify')">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                    </div>
+                    <h3>Shopify & Liquid</h3>
+                    <p>Egyedi kód szintű módosítások és többnyelvű rendszerek felépítése.</p>
+                </div>
+
+                <div class="interactive-card" id="card-integration" onclick="changeState('integration')">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Rendszerintegráció</h3>
+                    <p>Holvi, MobilePay és postai logisztikai rendszerek stabil szinkronizálása.</p>
+                </div>
+
+                <div class="interactive-card" id="card-automation" onclick="changeState('automation')">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                    </div>
+                    <h3>Folyamat-automatizálás</h3>
+                    <p>Manuális munka kiváltása egyedi rendszerekkel és scriptekkel.</p>
+                </div>
+
+            </div>
+
         </div>
+    </main>
+
+    <script>
+        function changeState(stateName) {
+            const viewport = document.getElementById('app-viewport');
+            viewport.setAttribute('data-state', stateName);
+            
+            // Kártyák aktív státuszának kezelése
+            document.querySelectorAll('.interactive-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            const activeCard = document.getElementById(`card-${stateName}`);
+            if(activeCard) activeCard.classList.add('active');
+        }
+
+        function resetState() {
+            const viewport = document.getElementById('app-viewport');
+            viewport.setAttribute('data-state', 'initial');
+            document.querySelectorAll('.interactive-card').forEach(card => {
+                card.classList.remove('active');
+            });
+        }
         
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="card-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                    </svg>
-                </div>
-                <h3>Shopify & Liquid</h3>
-                <p>Kód szintű módosítások (HTML, CSS, Liquid), egyedi linkstruktúrák és többnyelvű nemzetközi áruházak precíz felépítése az alapoktól.</p>
-            </div>
-
-            <div class="service-card">
-                <div class="card-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                        <polyline points="2 17 12 22 22 17"></polyline>
-                        <polyline points="2 12 12 17 22 12"></polyline>
-                    </svg>
-                </div>
-                <h3>Rendszerintegráció</h3>
-                <p>Külső szolgáltatások stabil összekötése. Holvi, MobilePay és postai logisztikai rendszerek automatizált, hibamentes szinkronizációja.</p>
-            </div>
-
-            <div class="service-card">
-                <div class="card-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                    </svg>
-                </div>
-                <h3>Folyamat-automatizálás</h3>
-                <p>Manuális, órákig tartó munka kiváltása percek alatt futó, egyedi Excel és digitális rendszerekkel. Kevesebb adminisztráció, nulla emberi hiba.</p>
-            </div>
-        </div>
-    </section>
+        // Ha a logóra kattint, ugorjon alaphelyzetbe
+        document.querySelector('.logo').addEventListener('click', (e) => {
+            resetState();
+        });
+    </script>
 
     <!-- MÍTOSZOK VS VALÓSÁG SZEKCIÓ -->
     <section id="mitoszok" class="myths-section">
