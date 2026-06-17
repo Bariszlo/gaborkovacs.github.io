@@ -48,9 +48,16 @@ body {
     background: #ffffff;
 }
 
-.intro-container max-width: 800px;
-.intro-container { margin: 0 auto; }
-.intro-container h1 { font-size: 2.8rem; margin-bottom: 20px; line-height: 1.2; }
+.intro-container { 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+
+.intro-container h1 { 
+    font-size: 2.8rem; 
+    margin-bottom: 20px; 
+    line-height: 1.2; 
+}
 
 /* ==========================================================================
    2. INTERAKTÍV MUNKATERÜLET (WORKSPACE)
@@ -199,7 +206,7 @@ body {
     color: #ffffff;
 }
 
-/* A PONOSAN KIVÁLASZTOTT SZÖVEG MEGJELENÍTÉSE (1.2s késleltetéssel) */
+/* A PONTOSAN KIVÁLASZTOTT SZÖVEG MEGJELENÍTÉSE (1.2s késleltetéssel) */
 #interactive-workspace[data-state="shopify"] #pane-shopify,
 #interactive-workspace[data-state="integration"] #pane-integration,
 #interactive-workspace[data-state="automation"] #pane-automation {
@@ -214,29 +221,48 @@ body {
 /* ==========================================================================
    4. MÍTOSZOK ÉS AUDIT SZEKCIÓK
    ========================================================================== */
+.section-title-light {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title-light h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.section-title-light p {
+    font-size: 1.1rem;
+    color: rgba(1, 46, 17, 0.7);
+}
+
 .myths-section, .audit-section {
     padding: 80px 4%;
     max-width: 1200px;
     margin: 0 auto;
 }
+
 .myths-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 40px;
 }
+
 .myth-card {
     background: #fff;
     padding: 30px;
     border-radius: 8px;
     border-left: 4px solid #012e11;
 }
+
 .audit-container {
     display: flex;
     gap: 50px;
     align-items: center;
     flex-wrap: wrap;
 }
+
 .audit-text, .audit-form-block { flex: 1 1 450px; }
 .form-group { margin-bottom: 20px; display: flex; flex-direction: column; }
 .form-group input, .form-group textarea { padding: 12px; border: 1px solid #ccc; border-radius: 6px; margin-top: 6px; }
@@ -250,6 +276,7 @@ body {
     background: #012e11;
     color: #ffffff;
 }
+
 .footer-container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
 .footer-link { color: #ffffff; text-decoration: underline; }
 
@@ -325,12 +352,6 @@ body {
                 background-color 0.4s ease, 
                 color 0.4s ease, 
                 transform 0.3s ease !important;
-}
-
-/* 2. A szövegek beúszásának pontosan 1.2 másodperces várakoztatása */
-.pane-content {
-    transition: opacity 1.0s ease 1.2s, 
-                transform 1.2s cubic-bezier(0.25, 1, 0.5, 1) 1.2s !important;
 }
 
 /* 3. A szekcióalj ugrálásának és indokolatlan megnyúlásának javítása */
