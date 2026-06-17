@@ -1,304 +1,86 @@
-<!DOCTYPE html>
-<html lang="hu">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kovács Gábor | Shopify & Tech Specialista</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <!-- FEJLÉC -->
-    <header class="main-header">
-        <div class="logo">Kovács Gábor</div>
-        <nav class="nav-links">
-            <a href="#szolgaltatasok">Miben segítek</a>
-            <a href="#mitoszok">Mítoszok vs Valóság</a>
-        </nav>
-        <a href="#audit" class="cta-header">Audit kérése</a>
-    </header>
-
-    <!-- HERO SZEKCIÓ -->
-    <header class="hero-intro">
-    <div class="intro-container">
-        <h1>A webshopod nem gombok összessége, hanem egy üzleti rendszer.</h1>
-        <p>Nem "billentyűket nyomkodok" távmunkában. Az e-kereskedelmi folyamataidat hangolom össze és automatizálom, hogy az adminisztrációs káosz helyett a növekedésre fókuszálhass.</p>
-    </div>
-</header>
-
-<section id="interactive-workspace" data-state="initial">
-    <div class="workspace-container">
-        
-        <div class="details-pane">
+<main id="app-viewport" data-state="initial">
+        <div class="interactive-container">
             
-            <div class="pane-content" id="pane-shopify">
-                <span class="state-tag">Shopify & Liquid</span>
-                <h2>Egyedi kódolás, sablonok nélkül.</h2>
-                <p>Nem kész sablonokat kattingatok össze. Ha kell, belenyúlok a Liquid kódba, egyedi funkciókat fejlesztek, vagy optimalizálom az oldalsebességet.</p>
-                <div class="pane-actions">
-                    <a href="#audit" class="action-link-main">Erre van szükségem</a>
-                    <button class="btn-back" onclick="resetWorkspace()">← Vissza a főoldalra</button>
+            <div class="content-zone">
+                <div class="state-content" id="state-initial">
+                    <h1>A webshopod nem gombok összessége, hanem egy üzleti rendszer.</h1>
+                    <p>Nem "billentyűket nyomkodok" távmunkában. Az e-kereskedelmi folyamataidat hangolom össze és automatizálom, hogy az adminisztrációs káosz helyett a növekedésre fókuszálhass.</p>
                 </div>
-            </div>
 
-            <div class="pane-content" id="pane-integration">
-                <span class="state-tag">Rendszerintegráció</span>
-                <h2>Nincs több elveszett adat vagy elakadt fizetés.</h2>
-                <p>Összekötöm a Shopify-t a finn és nemzetközi pénzügyi rendszerekkel (Holvi, MobilePay), valamint automatizálom a postai logisztikát.</p>
-                <div class="pane-actions">
-                    <a href="#audit" class="action-link-main">Integrációt szeretnék</a>
-                    <button class="btn-back" onclick="resetWorkspace()">← Vissza a főoldalra</button>
-                </div>
-            </div>
-
-            <div class="pane-content" id="pane-automation">
-                <span class="state-tag">Folyamat-automatizálás</span>
-                <h2>Váltsd ki a manuális Excel-táblázatokat.</h2>
-                <p>Olyan egyedi scripteket és digitális munkafolyamatokat építek, amik emberi beavatkozás nélkül, percek alatt elvégzik a napi rutint.</p>
-                <div class="pane-actions">
-                    <a href="#audit" class="action-link-main">Automatizálni akarok</a>
-                    <button class="btn-back" onclick="resetWorkspace()">← Vissza a főoldalra</button>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="cards-pane">
-            
-            <div class="interactive-card" id="card-shopify" onclick="activateState('shopify')">
-                <div class="card-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-                </div>
-                <div class="card-body">
-                    <h3>Shopify & Liquid</h3>
-                    <p class="card-desc">Egyedi kód szintű módosítások és rendszerek felépítése.</p>
-                </div>
-            </div>
-
-            <div class="interactive-card" id="card-integration" onclick="activateState('integration')">
-                <div class="card-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                </div>
-                <div class="card-body">
-                    <h3>Rendszerintegráció</h3>
-                    <p class="card-desc">Holvi, MobilePay és logisztikai rendszerek szinkronizálása.</p>
-                </div>
-            </div>
-
-            <div class="interactive-card" id="card-automation" onclick="activateState('automation')">
-                <div class="card-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                </div>
-                <div class="card-body">
-                    <h3>Folyamat-automatizálás</h3>
-                    <p class="card-desc">Manuális munka kiváltása egyedi scriptekkel.</p>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-    <script>
-        // 1. Interaktív kártyák és munkaterület logikája
-        function activateState(stateName) {
-            const workspace = document.getElementById('interactive-workspace');
-            workspace.setAttribute('data-state', stateName);
-            
-            document.querySelectorAll('.interactive-card').forEach(card => {
-                card.classList.remove('active-card');
-            });
-            
-            document.getElementById(`card-${stateName}`).classList.add('active-card');
-        }
-
-        function resetWorkspace() {
-            const workspace = document.getElementById('interactive-workspace');
-            workspace.setAttribute('data-state', 'initial');
-            
-            document.querySelectorAll('.interactive-card').forEach(card => {
-                card.classList.remove('active-card');
-            });
-        }
-
-        // 2. Adatkezelési Pop-up (Modal) logikája
-        const modal = document.getElementById('privacy-modal');
-        const openLink = document.getElementById('open-privacy');
-        const openFooterLink = document.getElementById('open-privacy-footer');
-        const closeBtn = document.querySelector('.modal-close');
-
-        function showModal(e) {
-            e.preventDefault();
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function hideModal() {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        if (openLink) openLink.addEventListener('click', showModal);
-        if (openFooterLink) openFooterLink.addEventListener('click', showModal);
-        if (closeBtn) closeBtn.addEventListener('click', hideModal);
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                hideModal();
-            }
-        });
-    </script>
-
-    <!-- MÍTOSZOK VS VALÓSÁG SZEKCIÓ -->
-    <section id="mitoszok" class="myths-section">
-        <div class="section-title-light">
-            <h2>Mítoszok vs. Valóság</h2>
-            <p>Hogyan működik a gyakorlatban egy valódi e-commerce rendszer?</p>
-        </div>
-
-        <div class="myths-grid">
-            <div class="myth-card">
-                <div class="myth-side">
-                    <span class="tag-myth">TÉVHIT</span>
-                    <h3>"A jó webshop magától elad, csak fel kell tölteni a termékeket."</h3>
-                </div>
-                <div class="reality-side">
-                    <span class="tag-reality">VALÓSÁG</span>
-                    <p>A technika csak az alap. Megfelelő rendszerlogika, gyorsaság és folyamatos technikai optimalizálás nélkül a látogatókból sosem lesz vásárló.</p>
-                </div>
-            </div>
-
-            <div class="myth-card">
-                <div class="myth-side">
-                    <span class="tag-myth">TÉVHIT</span>
-                    <h3>"Egy fejlesztő csak kódot ír, az üzleti folyamatokhoz semmi köze."</h3>
-                </div>
-                <div class="reality-side">
-                    <span class="tag-reality">VALÓSÁG</span>
-                    <p>A kód csak eszköz. Ha egy fejlesztő nem érti a számlázást, a logisztikát vagy a fizetési kapuk működését, használhatatlan rendszert épít. Én az üzleti logikát fordítom le kódra.</p>
-                </div>
-            </div>
-
-            <div class="myth-card">
-                <div class="myth-side">
-                    <span class="tag-myth">TÉVHIT</span>
-                    <h3>"Az automatizálás drága mulatság, csak a multik kiváltsága."</h3>
-                </div>
-                <div class="reality-side">
-                    <span class="tag-reality">VALÓSÁG</span>
-                    <p>Pár jól megírt script vagy egyedi táblázat naponta órákig tartó manuális adatmásolgatástól ment meg. Ez nem a vállalat méretétől, hanem a hatékonyságától függ.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- AJÁNLATKÉRÉS / AUDIT SZEKCIÓ -->
-    <section id="audit" class="audit-section">
-        <div class="audit-container">
-            <div class="audit-text">
-                <h2>Indítsuk el az ötleted, vagy tegyük rendbe a meglévőt.</h2>
-                <p>Nincsenek üres értékesítési körök vagy sablonos ajánlatok. Írd meg, milyen technikai elakadásod van, vagy vázold fel az új e-commerce koncepciódat.</p>
-                <ul class="audit-list">
-                    <li><strong>48 órán belüli válasz:</strong> Konkrét technikai iránymutatással reagálok.</li>
-                    <li><strong>Átlátható struktúra:</strong> Nincsenek rejtett költségek vagy túlvállalások.</li>
-                    <li><strong>Rendszerszemlélet:</strong> Nem csak a felületet nézem, a háttérfolyamatokat optimalizálom.</li>
-                </ul>
-            </div>
-            
-            <div class="audit-form-block">
-                <form action="https://formspree.io/f/xoqgkyre" method="POST" class="audit-form">
-                    <div class="form-group">
-                        <label for="name">Neved</label>
-                        <input type="text" id="name" name="name" required placeholder="Pl. Kis Péter">
+                <div class="state-content" id="state-shopify">
+                    <span class="state-tag">Shopify & Liquid</span>
+                    <h2>Egyedi kódolás, sablonok nélkül.</h2>
+                    <p>Nem kész sablonokat kattingatok össze. Ha kell, belenyúlok a Liquid kódba, egyedi funkciókat fejlesztek, vagy optimalizálom az oldalsebességet. Nemzetközi piacra lépésnél precíz többnyelvűsítést és tiszta URL struktúrát építek, amit a keresők is szeretnek.</p>
+                    <div class="state-actions">
+                        <a href="#audit" class="action-link-main">Erre van szükségem</a>
+                        <button class="btn-secondary" onclick="resetState()">← Vissza a főoldalra</button>
                     </div>
-                    <div class="form-group">
-                        <label for="email">E-mail címed</label>
-                        <input type="email" id="email" name="email" required placeholder="peter@webshopod.hu">
-                    </div>
-                    <div class="form-group">
-                        <label for="url">Létező weboldalad vagy az ötlet neve</label>
-                        <input type="text" id="url" name="website" placeholder="Pl. www.webshopom.hu">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Miben akadsz el? Mi a technikai feladat?</label>
-                        <textarea id="message" name="message" rows="5" required placeholder="Írd le röviden a jelenlegi problémát..."></textarea>
-                    </div>
-                    
-                    <!-- GDPR Checkbox felugró ablak triggerelése -->
-                    <div class="form-checkbox">
-                        <input type="checkbox" id="privacy" name="privacy_acceptance" required>
-                        <label for="privacy">Elfogadom az <a href="#" id="open-privacy">Adatkezelési tájékoztatót</a> és hozzájárulok az adataim kezeléséhez.</label>
-                    </div>
+                </div>
 
-                    <button type="submit" class="btn-submit">Technikai megkeresés küldése</button>
-                </form>
+                <div class="state-content" id="state-integration">
+                    <span class="state-tag">Rendszerintegráció</span>
+                    <h2>Nincs több elveszett adat vagy elakadt fizetés.</h2>
+                    <p>A webshopod nem szigetként működik. Összekötöm a Shopify-t a finn és nemzetközi pénzügyi rendszerekkel (Holvi, MobilePay), valamint automatizálom a postai logisztikát. Az adatok szinkronizálása azonnali és hibamentes lesz.</p>
+                    <div class="state-actions">
+                        <a href="#audit" class="action-link-main">Integrációt szeretnék</a>
+                        <button class="btn-secondary" onclick="resetState()">← Vissza a főoldalra</button>
+                    </div>
+                </div>
+
+                <div class="state-content" id="state-automation">
+                    <span class="state-tag">Folyamat-automatizálás</span>
+                    <h2>Váltsd ki a manuális Excel-táblázatokat.</h2>
+                    <p>Ha hetente órákat töltesz adatok másolgatásával, számlák kézi egyeztetésével vagy készletfrissítéssel, pénzt veszítesz. Olyan egyedi scripteket és digitális munkafolyamatokat építek, amik emberi beavatkozás nélkül, percek alatt elvégzik a napi rutint.</p>
+                    <div class="state-actions">
+                        <a href="#audit" class="action-link-main">Automatizálni akarok</a>
+                        <button class="btn-secondary" onclick="resetState()">← Vissza a főoldalra</button>
+                    </div>
+                </div>
             </div>
+
+            <div class="cards-zone">
+                
+                <div class="interactive-card" id="card-shopify" onclick="changeState('shopify')">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                    </div>
+                    <div class="card-text">
+                        <h3>Shopify & Liquid</h3>
+                        <p>Egyedi kód szintű módosítások és többnyelvű rendszerek felépítése.</p>
+                    </div>
+                </div>
+
+                <div class="interactive-card" id="card-integration" onclick="changeState('integration')">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="card-text">
+                        <h3>Rendszerintegráció</h3>
+                        <p>Holvi, MobilePay és postai logisztikai rendszerek stabil szinkronizálása.</p>
+                    </div>
+                </div>
+
+                <div class="interactive-card" id="card-automation" onclick="changeState('automation')">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                    </div>
+                    <div class="card-text">
+                        <h3>Folyamat-automatizálás</h3>
+                        <p>Manuális munka kiváltása egyedi rendszerekkel és scriptekkel.</p>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
-    </section>
-
-    <!-- LÁBLÉC -->
-    <footer class="main-footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <span class="footer-logo">Kovács Gábor</span>
-                <p>Shopify fejlesztés & Folyamat-automatizálás</p>
-            </div>
-            <div class="footer-meta">
-                <p><a href="#" id="open-privacy-footer" class="footer-link">Adatkezelési Tájékoztató</a></p>
-                <p>© 2026 Kovács Gábor. Minden jog fenntartva.</p>
-                <p>Built with clean code on GitHub Pages.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- POP-UP (MODAL) SZERKEZET -->
-    <div id="privacy-modal" class="modal-overlay">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <h3>Adatkezelési Tájékoztató</h3>
-            <div class="modal-text">
-                <p><strong>Adatkezelő:</strong> Kovács Gábor (E-commerce & Tech Specialista)</p>
-                <p><strong>Kezelt adatok köre:</strong> Az űrlapon általad megadott név, e-mail cím, weboldal URL címe és az üzeneted tartalma.</p>
-                <p><strong>Az adatkezelés célja:</strong> Kizárólag a beérkezett technikai megkeresések megválaszolása, audit készítése és üzleti kapcsolattartás.</p>
-                <p><strong>Adattovábbítás:</strong> Az adatok feldolgozását és továbbítását a Formspree (Formspree, Inc., USA) végzi, amely biztonságos adatkezelést garantál.</p>
-                <p><strong>Időtartam:</strong> Az adatokat a kapcsolat fennállásáig vagy a törlési kérelmedig tárolom. Harmadik félnek marketing célból nem adom át.</p>
-                <p>Az űrlap elküldésével hozzájárulsz a fentiekhez. Bármikor kérheted adataid törlését vagy módosítását e-mailben.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- POP-UP-OT KEZELŐ SCRIPT -->
-    <script>
-        const modal = document.getElementById('privacy-modal');
-        const openLink = document.getElementById('open-privacy');
-        const openFooterLink = document.getElementById('open-privacy-footer');
-        const closeBtn = document.querySelector('.modal-close');
-
-        function showModal(e) {
-            e.preventDefault();
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Háttér görgetés letiltása
-        }
-
-        function hideModal() {
-            modal.classList.remove('active');
-            document.body.style.overflow = ''; // Görgetés visszaállítása
-        }
-
-        openLink.addEventListener('click', showModal);
-        if (openFooterLink) {
-            openFooterLink.addEventListener('click', showModal);
-        }
-        closeBtn.addEventListener('click', hideModal);
-
-        // Bezárás, ha a szürke háttérre kattint a felhasználó
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                hideModal();
-            }
-        });
-    </script>
-
-</body>
-</html>
+    </main>
